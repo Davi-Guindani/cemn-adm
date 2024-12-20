@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const loggedIn: boolean = false;
+const loggedIn: boolean = true;
 
 export function middleware(request: NextRequest) {
   if (loggedIn) {
@@ -12,5 +12,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/protected_route/:path*"],
+  matcher: ["/dashboard/:path*"],
 };
