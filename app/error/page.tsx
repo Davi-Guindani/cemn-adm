@@ -1,5 +1,3 @@
-"use client";
-
 export default function ErrorPage() {
-  return <p>Desculpe, alguma coisa deu errado</p>;
+  return <p>Sorry, something went wrong</p>;
 }
