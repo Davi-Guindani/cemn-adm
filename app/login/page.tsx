@@ -2,10 +2,10 @@ import Link from "next/link";
 import { SubmitButton } from "./submit-button";
 import { signIn, signUp } from "./actions";
 
-export default function Login({
+export default async function Login({
   searchParams,
 }: {
-  searchParams: { message: string };
+  searchParams: Promise<{ message: string }>;
 }) {
   return (
     <div>
@@ -27,7 +27,9 @@ export default function Login({
         <SubmitButton formAction={signUp} pendingText="Signing Up...">
           Sign Up
         </SubmitButton>
-        {searchParams?.message && <p>{searchParams.message}</p>}
+        {(await searchParams)?.message && (
+          <p>{(await searchParams)?.message}</p>
+        )}
       </form>
     </div>
   );
