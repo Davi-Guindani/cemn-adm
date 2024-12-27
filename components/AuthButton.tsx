@@ -21,10 +21,10 @@ export default async function AuthButton() {
     <div>
       Hey, {user.email}!
       <form action={signOut}>
-        <button>Logout</button>
+        <button>Sign Out</button>
       </form>
     </div>
   ) : (
-    <Link href="/login">Login</Link>
+    <Link href="/login">Sign In</Link>
   );
 }

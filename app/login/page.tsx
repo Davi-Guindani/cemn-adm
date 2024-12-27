@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SubmitButton } from "./submit-button";
 import { signIn } from "./actions";
 
-export default async function Login({
+export default async function SignIn({
   searchParams,
 }: {
   searchParams: Promise<{ message: string }>;
