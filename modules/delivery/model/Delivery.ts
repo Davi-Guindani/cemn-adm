@@ -19,4 +19,20 @@ export class Delivery extends Record {
     this._userId = userId;
     this._receivedAt = receivedAt;
   }
+
+  public get residentId(): string {
+    return this._residentId;
+  }
+
+  public get company(): string {
+    return this._company;
+  }
+
+  public get userId(): string {
+    return this._userId;
+  }
+
+  public get receivedAt(): string {
+    return this._receivedAt;
+  }
 }
