@@ -1,38 +1,57 @@
+import { Company } from "modules/company/model/Company";
+import { House } from "modules/house/model/House";
 import { Record } from "modules/record/model/Record";
+import { Resident } from "modules/resident/model/Resident";
+import { Street } from "modules/street/model/Street";
+import { User } from "modules/user/model/User";
 
 export class Delivery extends Record {
-  private _residentId: string;
-  private _company: string;
-  private _userId: string;
-  private _receivedAt: string;
+  private readonly _user: User;
+  private readonly _street: Street;
+  private readonly _house: House;
+  private readonly _resident: Resident;
+  private readonly _receivedAt: Date;
+  private readonly _company: Company;
 
   constructor(
     id: string,
-    residentId: string,
-    company: string,
-    userId: string,
-    receivedAt: string,
+    user: User,
+    street: Street,
+    house: House,
+    resident: Resident,
+    receivedAt: Date,
+    company: Company,
   ) {
     super(id);
-    this._residentId = residentId;
-    this._company = company;
-    this._userId = userId;
+    this._user = user;
+    this._street = street;
+    this._house = house;
+    this._resident = resident;
     this._receivedAt = receivedAt;
+    this._company = company;
   }
 
-  public get residentId(): string {
-    return this._residentId;
+  public get user(): User {
+    return this._user;
   }
 
-  public get company(): string {
-    return this._company;
+  public get street(): Street {
+    return this._street;
   }
 
-  public get userId(): string {
-    return this._userId;
+  public get house(): House {
+    return this._house;
   }
 
-  public get receivedAt(): string {
+  public get resident(): Resident {
+    return this._resident;
+  }
+
+  public get receivedAt(): Date {
     return this._receivedAt;
+  }
+
+  public get company(): Company {
+    return this._company;
   }
 }
