@@ -1,52 +1,57 @@
+import { Company } from "modules/company/model/Company";
+import { House } from "modules/house/model/House";
 import { Record } from "modules/record/model/Record";
+import { Resident } from "modules/resident/model/Resident";
+import { Street } from "modules/street/model/Street";
+import { User } from "modules/user/model/User";
 
 export class Delivery extends Record {
-  private readonly _userId: string;
-  private readonly _houseId: string;
-  private readonly _streetId: string;
-  private readonly _residentId: string;
+  private readonly _user: User;
+  private readonly _street: Street;
+  private readonly _house: House;
+  private readonly _resident: Resident;
   private readonly _receivedAt: Date;
-  private readonly _company: string;
+  private readonly _company: Company;
 
   constructor(
     id: string,
-    userId: string,
-    streetId: string,
-    houseId: string,
-    residentId: string,
+    user: User,
+    street: Street,
+    house: House,
+    resident: Resident,
     receivedAt: Date,
-    company: string,
+    company: Company,
   ) {
     super(id);
-    this._userId = userId;
-    this._streetId = streetId;
-    this._houseId = houseId;
-    this._residentId = residentId;
+    this._user = user;
+    this._street = street;
+    this._house = house;
+    this._resident = resident;
     this._receivedAt = receivedAt;
     this._company = company;
   }
 
-  public get userId(): string {
-    return this._userId;
+  public get user(): User {
+    return this._user;
   }
 
-  public get streetId(): string {
-    return this._streetId;
+  public get street(): Street {
+    return this._street;
   }
 
-  public get houseId(): string {
-    return this._houseId;
+  public get house(): House {
+    return this._house;
   }
 
-  public get residentId(): string {
-    return this._residentId;
+  public get resident(): Resident {
+    return this._resident;
   }
 
   public get receivedAt(): Date {
     return this._receivedAt;
   }
 
-  public get company(): string {
+  public get company(): Company {
     return this._company;
   }
 }
