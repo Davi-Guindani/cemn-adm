@@ -1,4 +1,4 @@
-export type selectAllDeliveriesQueryType = {
+export type selectDeliveriesQueryType = {
   id: string;
   users: {
     id: string;
