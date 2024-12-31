@@ -56,7 +56,7 @@ export async function getAllDeliveries(): Promise<Delivery[]> {
   }
 }
 
-export async function getDeliveryById(id: string) {
+export async function getDeliveryById(id: string): Promise<Delivery[]> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("deliveries")
