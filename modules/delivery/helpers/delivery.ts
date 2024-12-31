@@ -1,3 +1,11 @@
+export const deliveriesQuery: string = `id, 
+  users(id, first_name, last_name, email), 
+  streets(id, name), 
+  houses(id, number), 
+  residents(id, first_name, last_name), 
+  received_at, 
+  companies(id, name)`;
+
 export type selectDeliveriesQueryType = {
   id: string;
   users: {
