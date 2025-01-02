@@ -14,10 +14,10 @@ function parseDelivery(data: selectDeliveriesQueryType[]) {
   let deliveries: Delivery[] = [];
   deliveries = data.map((delivery) => {
     const user = new User(
-      delivery.users.id,
       delivery.users.first_name,
       delivery.users.last_name,
       delivery.users.email,
+      delivery.users.id,
     );
     const street = new Street(delivery.streets.id, delivery.streets.name);
     const house = new House(delivery.houses.id, delivery.houses.number, street);
@@ -66,6 +66,30 @@ export async function getDeliveryById(id: string): Promise<Delivery[]> {
 
   if (!error) {
     return parseDelivery(data);
+  } else {
+    throw error;
+  }
+}
+
+export async function createDelivery(
+  userId: string,
+  streetId: string,
+  houseId: string,
+  residentId: string,
+  receivedAt: Date,
+  companyId: string,
+) {
+  const supabase = await createClient();
+  const { error } = await supabase.from("deliveries").insert({
+    user_id: userId,
+    street_id: streetId,
+    house_id: houseId,
+    resident_id: residentId,
+    received_at: receivedAt,
+    company_id: companyId,
+  });
+  if (!error) {
+    return;
   } else {
     throw error;
   }
