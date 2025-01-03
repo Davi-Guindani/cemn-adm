@@ -94,3 +94,13 @@ export async function createDelivery(
     throw error;
   }
 }
+
+export async function updateDelivery(id: string, data: any) {
+  const supabase = await createClient();
+  const { error } = await supabase.from("deliveries").update(data).eq("id", id);
+  if (!error) {
+    return;
+  } else {
+    throw error;
+  }
+}
